@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Header</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+
+  <body>
+    <header class="w-full border-b border-gray-200 bg-white">
+      <div class="max-w-[1440px] mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <img src="logo.png" alt="logo" class="h-8 w-auto" />
+          </div>
+
+          <!-- Desktop Menu -->
+          <ol class="hidden md:flex items-center font-bold">
+            <li class="px-5 border-r border-gray-300 cursor-pointer">
+              Pricelists
+            </li>
+            <li class="px-5 border-r border-gray-300 cursor-pointer">
+              Buy and sell board
+            </li>
+            <li class="px-5 border-r border-gray-300 cursor-pointer">
+              Services
+            </li>
+            <li class="px-5 cursor-pointer">Online Advertising</li>
+          </ol>
+
+          <!-- Right Actions -->
+          <div class="hidden md:flex items-center gap-3">
+            <!-- Purchase -->
+            <button
+              class="bg-[#980715] text-white px-3 py-1 rounded font-semibold whitespace-nowrap cursor-pointer"
+            >
+              Purchase a subscription
+            </button>
+
+            <!-- Auth Buttons -->
+            <div
+              class="border border-[#980715] py-1 rounded font-semibold text-[#980715] flex"
+            >
+              <button class="border-r border-gray-300 pr-2 pl-3 cursor-pointer">
+                Sign in
+              </button>
+              <button class="pl-2 pr-3 cursor-pointer">Register</button>
+            </div>
+
+            <!-- Accessibility + Language -->
+            <div class="flex items-center text-[#980715] gap-3">
+              <div class="border-r border-gray-300 pr-3 cursor-pointer">
+                <!-- Accessibility Icon -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="16" cy="4" r="1" />
+                  <path d="m18 19 1-7-6 1" />
+                  <path d="m5 8 3-3 5.5 3-2.36 3.5" />
+                  <path d="M4.24 14.5a5 5 0 0 0 6.88 6" />
+                  <path d="M13.76 17.5a5 5 0 0 0-6.88-6" />
+                </svg>
+              </div>
+
+              <div class="flex items-center gap-1 cursor-pointer">
+                En
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mobile Hamburger -->
+          <button id="menuBtn" class="md:hidden cursor-pointer text-[#980715]">
+            ☰
+          </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden pb-4">
+          <ol class="flex flex-col font-semibold">
+            <li class="py-2 border-b">Pricelists</li>
+            <li class="py-2 border-b">Buy and sell board</li>
+            <li class="py-2 border-b">Services</li>
+            <li class="py-2">Online Advertising</li>
+          </ol>
+
+          <div class="mt-4 flex flex-col gap-3">
+            <button
+              class="bg-[#980715] text-white px-3 py-2 rounded font-semibold"
+            >
+              Purchase a subscription
+            </button>
+
+            <div
+              class="border border-[#980715] py-2 rounded font-semibold text-[#980715] flex justify-center"
+            >
+              <button class="border-r border-gray-300 px-3">Sign in</button>
+              <button class="px-3">Register</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Toggle Script -->
+    <script>
+      const btn = document.getElementById("menuBtn");
+      const menu = document.getElementById("mobileMenu");
+
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
