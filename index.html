@@ -18,9 +18,45 @@
 
           <!-- Desktop Menu -->
           <ol class="hidden md:flex items-center font-bold">
-            <li class="px-5 border-r border-gray-300 cursor-pointer">
-              Pricelists
+            <!-- Pricelist Dropdown -->
+            <li class="relative px-5 border-r border-gray-300">
+              <button
+                id="priceBtn"
+                class="flex items-center gap-1 cursor-pointer"
+              >
+                Pricelists
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </button>
+
+              <!-- Dropdown -->
+              <div
+                id="priceDropdown"
+                class="hidden absolute left-0 top-full mt-2 w-48 bg-white border border-gray-200 shadow-md rounded"
+              >
+                <ul class="font-semibold text-sm">
+                  <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                    Sub menu 1
+                  </li>
+                  <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                    Sub menu 2
+                  </li>
+                  <li class="px-4 py-2 hover:bg-gray-100 cursor-pointer">
+                    Sub menu 3
+                  </li>
+                </ul>
+              </div>
             </li>
+
             <li class="px-5 border-r border-gray-300 cursor-pointer">
               Buy and sell board
             </li>
@@ -100,15 +136,53 @@
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="hidden md:hidden pb-4">
           <ol class="flex flex-col font-semibold">
-            <li class="py-2 border-b">Pricelists</li>
-            <li class="py-2 border-b">Buy and sell board</li>
-            <li class="py-2 border-b">Services</li>
-            <li class="py-2">Online Advertising</li>
+            <!-- Mobile Pricelist Dropdown -->
+            <li class="border-b border-b-gray-200">
+              <button
+                id="mobilePriceBtn"
+                class="w-full text-left py-2 flex justify-between items-center cursor-pointer hover:bg-gray-100 px-2 transition"
+              >
+                Pricelists
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="m6 9 6 6 6-6" />
+                </svg>
+              </button>
+
+              <ul id="mobilePriceDropdown" class="hidden pl-4 pb-2 text-sm">
+                <li class="py-1 cursor-pointer">Sub menu 1</li>
+                <li class="py-1 cursor-pointer">Sub menu 2</li>
+                <li class="py-1 cursor-pointer">Sub menu 3</li>
+              </ul>
+            </li>
+
+            <li
+              class="py-2 cursor-pointer border-b border-b-gray-200 px-2 hover:bg-gray-100 transition"
+            >
+              Buy and sell board
+            </li>
+            <li
+              class="py-2 cursor-pointer border-b border-b-gray-200 px-2 hover:bg-gray-100 transition"
+            >
+              Services
+            </li>
+            <li class="py-2 cursor-pointer px-2 hover:bg-gray-100 transition">
+              Online Advertising
+            </li>
           </ol>
 
           <div class="mt-4 flex flex-col gap-3">
             <button
-              class="bg-[#980715] text-white px-3 py-2 rounded font-semibold"
+              class="bg-[#980715] text-white px-3 py-2 rounded font-semibold cursor-pointer"
             >
               Purchase a subscription
             </button>
@@ -116,21 +190,43 @@
             <div
               class="border border-[#980715] py-2 rounded font-semibold text-[#980715] flex justify-center"
             >
-              <button class="border-r border-gray-300 px-3">Sign in</button>
-              <button class="px-3">Register</button>
+              <button class="border-r border-gray-300 px-3 cursor-pointer">
+                Sign in
+              </button>
+              <button class="px-3 cursor-pointer">Register</button>
             </div>
           </div>
         </div>
       </div>
     </header>
 
+    
+
     <!-- Toggle Script -->
     <script>
-      const btn = document.getElementById("menuBtn");
-      const menu = document.getElementById("mobileMenu");
+      const menuBtn = document.getElementById("menuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
 
-      btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Desktop dropdown
+      const priceBtn = document.getElementById("priceBtn");
+      const priceDropdown = document.getElementById("priceDropdown");
+
+      priceBtn.addEventListener("click", () => {
+        priceDropdown.classList.toggle("hidden");
+      });
+
+      // Mobile dropdown
+      const mobilePriceBtn = document.getElementById("mobilePriceBtn");
+      const mobilePriceDropdown = document.getElementById(
+        "mobilePriceDropdown",
+      );
+
+      mobilePriceBtn.addEventListener("click", () => {
+        mobilePriceDropdown.classList.toggle("hidden");
       });
     </script>
   </body>
